@@ -1,4 +1,4 @@
-// JavaScript portofolio Andi Pratama
+// JavaScript portofolio Putri Dwi Paulia
 // Dipasang di ketiga halaman dengan defer
 // 1. Daftar keahlian (halaman Beranda)
 const skills = [
