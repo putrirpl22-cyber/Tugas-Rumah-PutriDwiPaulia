@@ -1,25 +1,30 @@
 // JavaScript portofolio Putri Dwi Paulia
 // Dipasang di ketiga halaman dengan defer
-// 1. Daftar keahlian (halaman Beranda)
-const skills = [
-    { nama: "HTML", level: "Menengah" },
-    { nama: "CSS", level: "Menengah" },
-    { nama: "Git dan GitHub", level: "Dasar" },
-    { nama: "Desain poster dengan Canva", level: "Mahir" },
-    { nama: "Desain manual", level: "Menengah" }
-];
-skills.push({ nama: "JavaScript", level: "Dasar" });
-
+// 1. Daftar keahlian (halaman Beranda), data dari data/keahlian.json
 const daftarSkill = document.querySelector("#daftar-skill");
 const jumlahSkill = document.querySelector("#jumlah-skill");
-skills.forEach((skill) => {
-    const item = document.createElement("li");
-    item.textContent = `${skill.nama} (${skill.level})`;
-    daftarSkill.appendChild(item);
-});
-jumlahSkill.textContent = `Ada ${skills.length} keahlian yang sedang
-saya kembangkan.`;
-
+async function muatKeahlian() {
+    try {
+        const response = await fetch("data/keahlian.json");
+        if (!response.ok) {
+            throw new Error(`Status ${response.status}`);
+        }
+        const skills = await response.json();
+        skills.forEach((skill) => {
+            const item = document.createElement("li");
+            item.textContent = `${skill.nama} (${skill.level})`;
+            daftarSkill.appendChild(item);
+        });
+        jumlahSkill.textContent = `Ada ${skills.length} keahlian yang 
+sedang saya kembangkan.`;
+    } catch (error) {
+        jumlahSkill.textContent = "Daftar keahlian gagal dimuat.";
+        console.error(error);
+    }
+}
+if (daftarSkill) {
+    muatKeahlian();
+}
 // 2. Tema gelap (semua halaman)
 const tombolTema = document.querySelector("#tombol-tema");
 tombolTema.addEventListener("click", () => {
@@ -121,4 +126,42 @@ if (daftarProyek) {
     pasangFilter("#filter-javascript", "JavaScript");
     pasangFilter("#filter-css", "CSS");
     pasangFilter("#filter-html", "HTML");
+}
+
+// 5. Repositori GitHub terbaru (halaman Proyek)
+const username = "putrirpl22-cyber";
+const alamatRepo = `https://api.github.com/users/${username}/repos`;
+const pilihan = "?sort=updated&per_page=6";
+const daftarRepo = document.querySelector("#daftar-repo");
+const statusRepo = document.querySelector("#status-repo");
+if (daftarRepo) {
+    async function ambilRepo() {
+        try {
+            const response = await fetch(alamatRepo + pilihan);
+            if (!response.ok) {
+                throw new Error(`GitHub mengembalikan status ${response.status}`);
+            }
+
+            const repos = await response.json();
+            repos.forEach((repo) => {
+                const item = document.createElement("li");
+                const tautan = document.createElement("a");
+                tautan.href = repo.html_url;
+                tautan.target = "_blank";
+                tautan.rel = "noopener noreferrer";
+                tautan.textContent = repo.name;
+                item.appendChild(tautan);
+                item.append(
+				` (${repo.language || "tanpa bahasa"}, ${repo.stargazers_count} bintang)`
+			);
+                daftarRepo.appendChild(item);
+            });
+            statusRepo.textContent = `${repos.length} repositori yang terakhir diperbarui:`;
+        } catch (error) {
+            statusRepo.textContent =  "Maaf, daftar repository tidak dapat dimuat. Periksa koneksi atau nama akun GitHub.";
+            console.error("Gagal memuat repositori GitHub:", error);
+        }
+    }
+
+    ambilRepo();
 }
