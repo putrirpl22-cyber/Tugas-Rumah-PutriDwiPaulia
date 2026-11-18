@@ -39,12 +39,15 @@ tombolTema.addEventListener("click", () => {
 
 // 3. Penghitung karakter pesan (halaman Kontak)
 const kotakPesan = document.querySelector("#pesan");
-const hitungKarakter = document.querySelector("#hitung-karakter");
+const hitungKarakter = document.querySelector("#hitung-karakter, #hampir-penuh");
 if (kotakPesan) {
     kotakPesan.addEventListener("input", () => {
         hitungKarakter.textContent = `${kotakPesan.value.length}/300
 karakter`;
     });
+}
+else {
+    hitungKarakter.textContent = `${kotakPesan.value.length}/300 karakter`;
 }
 // 4. Daftar proyek dan filter (halaman Proyek)
 const proyek = [
