@@ -46,6 +46,24 @@ if (kotakPesan) {
 karakter`;
     });
 }
+
+if (kotakPesan) {
+    const peringatanKarakter = document.querySelector("#peringatan-karakter");
+    const hapusPesan = document.querySelector("button[type='reset']");
+    hapusPesan.addEventListener("click", () => {
+        peringatanKarakter.style.display = "none";
+        hitungKarakter.textContent = "0/300 karakter";
+    });
+    kotakPesan.addEventListener("input", () => {
+        const panjangPesan = kotakPesan.value.length;
+        hitungKarakter.textContent = `${panjangPesan}/300 karakter`;
+        if (panjangPesan > 250) {
+            peringatanKarakter.style.display = "block";
+        } else {
+            peringatanKarakter.style.display = "none";
+        }
+    });
+}
 // 4. Daftar proyek dan filter (halaman Proyek)
 const proyek = [
     {
