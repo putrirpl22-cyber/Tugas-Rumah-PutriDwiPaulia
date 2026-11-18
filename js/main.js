@@ -46,9 +46,6 @@ if (kotakPesan) {
 karakter`;
     });
 }
-else {
-    hitungKarakter.textContent = `${kotakPesan.value.length}/300 karakter`;
-}
 // 4. Daftar proyek dan filter (halaman Proyek)
 const proyek = [
     {
