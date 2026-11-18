@@ -347,10 +347,11 @@ td {
     border-color 0.3s ease;
 }
 
-#hampir-penuh {
-  background-color: var(--warna-aksen);
-}
-
 .tombol-kedua {
   background-color: var(--warna-utama);
+  color: var(--warna-kartu);
+}
+
+#tombol-kosongkan {
+  display: inline-block;
 }

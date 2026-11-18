@@ -39,7 +39,7 @@ tombolTema.addEventListener("click", () => {
 
 // 3. Penghitung karakter pesan (halaman Kontak)
 const kotakPesan = document.querySelector("#pesan");
-const hitungKarakter = document.querySelector("#hitung-karakter, #hampir-penuh");
+const hitungKarakter = document.querySelector("#hitung-karakter");
 if (kotakPesan) {
     kotakPesan.addEventListener("input", () => {
         hitungKarakter.textContent = `${kotakPesan.value.length}/300
@@ -48,19 +48,18 @@ karakter`;
 }
 
 if (kotakPesan) {
-    const peringatanKarakter = document.querySelector("#peringatan-karakter");
+    const tombolKosongkan = document.querySelector("#tombol-kosongkan");
     const hapusPesan = document.querySelector("button[type='reset']");
     hapusPesan.addEventListener("click", () => {
-        peringatanKarakter.style.display = "none";
         hitungKarakter.textContent = "0/300 karakter";
     });
     kotakPesan.addEventListener("input", () => {
         const panjangPesan = kotakPesan.value.length;
         hitungKarakter.textContent = `${panjangPesan}/300 karakter`;
         if (panjangPesan > 250) {
-            peringatanKarakter.style.display = "block";
+            tombolKosongkan.style.display = "inline-block";
         } else {
-            peringatanKarakter.style.display = "none";
+            tombolKosongkan.style.display = "inline-block";
         }
     });
 }
