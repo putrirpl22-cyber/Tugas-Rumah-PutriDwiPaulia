@@ -29,5 +29,5 @@ SEO 91
 - Kontak: Performance 98, Accessibility 93, Best Practices 99, SEO
 90
 ## Tautan
-- Website: https://portofolio-.vercel.app
+- Website: https://tugas-rumah-putridwipaulia.vercel.app/
 - Dibuat oleh: Putri Dwi Paulia, SMKS Brantas Karangkates
