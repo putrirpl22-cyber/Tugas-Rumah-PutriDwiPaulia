@@ -22,12 +22,12 @@ terbaru dari GitHub API
 - JSON dan GitHub REST API
 - Git, GitHub, dan Vercel
 ## Skor Lighthouse (mobile)
-- Beranda: Performance 96, Accessibility 100, Best Practices 100,
-SEO 100
-- Proyek: Performance 95, Accessibility 100, Best Practices 100, SEO
-100
-- Kontak: Performance 99, Accessibility 100, Best Practices 100, SEO
-100
+- Beranda: Performance 99, Accessibility 94, Best Practices 100,
+SEO 91
+- Proyek: Performance 98, Accessibility 94, Best Practices 96, SEO
+91
+- Kontak: Performance 98, Accessibility 93, Best Practices 99, SEO
+90
 ## Tautan
 - Website: https://portofolio-.vercel.app
 - Dibuat oleh: Putri Dwi Paulia, SMKS Brantas Karangkates
